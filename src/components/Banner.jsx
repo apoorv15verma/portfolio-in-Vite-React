@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/astronaut 2.webp";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
@@ -11,6 +10,7 @@ export const Banner = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
+  const [index, setIndex] = useState(0); // Define index state
 
   const toRotate = ["Web Developer", "Graphic Designer"];
   const period = 1000;
@@ -31,6 +31,7 @@ export const Banner = () => {
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
 
+      // Update index state
       setIndex((prevIndex) => prevIndex - 1);
 
       setDelta(period);
